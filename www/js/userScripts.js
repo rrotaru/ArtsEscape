@@ -105,4 +105,99 @@ $(document).ready(function(){
                 }
         });
 
+    });
+
+        $("#donationSubmit").click(function() {
+            var data = {
+                table: "donation",
+                date: $('donationDate').val(),
+                type: $('donationType').val(),
+                amount: $('donationAmount').val()
+            }
+
+            $.ajax({
+                url: host+"/api/add",
+                data: data,
+                contentType: "application/x-www-form-urlencoded",
+                type: "POST",
+                dataType: "text",
+                success: function(response) {
+                    console.log(response);
+                },
+                error: function(error){
+                    console.log(error);
+                }
+            });
+        });
+
+        $("#sponsorshipSubmit").click(function() {
+            var data = {
+                table: "sponsorship",
+                date: $('sponsorshipDate').val(),
+                type: $('sponsorshipType').val(),
+                amount: $('sponsorshipAmount').val()
+            }
+
+            $.ajax({
+                url: host+"/api/add",
+                data: data,
+                contentType: "application/x-www-form-urlencoded",
+                type: "POST",
+                dataType: "text",
+                success: function(response) {
+                    console.log(response);
+                },
+                error: function(error){
+                    console.log(error);
+                }
+            });
+        });
+
+        $("#programSubmit").click(function() {
+            var data = {
+                table: "program",
+                date: $('programDate').val(),
+                type: $('programType').val(),
+                amount: $('programAmount').val()
+            }
+
+            $.ajax({
+                url: host+"/api/add",
+                data: data,
+                contentType: "application/x-www-form-urlencoded",
+                type: "POST",
+                dataType: "text",
+                success: function(response) {
+                    console.log(response);
+                },
+                error: function(error){
+                    console.log(error);
+                }
+            });
+        });
+
+        $("#volunteeringSubmit").click(function() {
+            var data = {
+                table: "volunteering",
+                date: $('volunteeringDate').val(),
+                type: $('volunteeringType').val(),
+                amount: $('volunteeringAmount').val()
+            }
+
+            $.ajax({
+                url: host+"/api/add",
+                data: data,
+                contentType: "application/x-www-form-urlencoded",
+                type: "POST",
+                dataType: "text",
+                success: function(response) {
+                    console.log(response);
+                },
+                error: function(error){
+                    console.log(error);
+                }
+            });
+        });
+
+
 });
