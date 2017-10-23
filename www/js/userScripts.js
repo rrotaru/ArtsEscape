@@ -107,7 +107,6 @@ $(document).ready(function(){
 
     });
 
-<<<<<<< HEAD
         $("#donationSubmit").click(function() {
             var data = {
                 table: "donation",
@@ -201,6 +200,4 @@ $(document).ready(function(){
         });
 
 
-=======
->>>>>>> Fixed things
 });
