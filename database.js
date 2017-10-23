@@ -122,7 +122,7 @@ exports.add = function(req, res) {
         case "volunteering":
             var donationData = {
                 "date" : req.body.date,
-                "hours" : req.body.type,
+                "hours" : req.body.hours,
                 "user_id" : req.body.user_id,
             }
 
