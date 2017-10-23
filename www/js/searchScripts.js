@@ -24,10 +24,10 @@ $(document).ready(function(){
 
                 for (var i = 0; i < searchResults.length; i++){
                     var d = searchResults[i];
-                    $("#searchTableRows").append("<tr><td>"+d.first_name+"</td><td>"+d.last_name+"</td><td>"+d.email+"</td><td>"+d.phone+"</td><td><input type=\"button\" class=\"btn btn-primary sr-btn\" value=\""+d.id+"\" ></td></tr>");
+                    $("#searchTableRows").append("<tr><td>"+d.first_name+"</td><td>"+d.last_name+"</td><td>"+d.email+"</td><td>"+d.phone+"</td><td><input type=\"button\" class=\"btn btn-primary sr-btn\" id=\""+d.id+"\" value=\"View\" ></td></tr>");
                 }
                 $('.sr-btn').click(function(){
-                    sessionStorage.setItem('userid', this.value);
+                    sessionStorage.setItem('userid', this.id);
                     window.location.href = "user.html";
                   });
             },
