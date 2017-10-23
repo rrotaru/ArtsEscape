@@ -1,9 +1,8 @@
 var searchResults = [];
 
-
 $(document).ready(function(){
     
-    $( "#searchSubmit" ).click(function() {
+    $("#searchSubmit").click(function() {
         searchResults = [];
         console.log('search started');
 
