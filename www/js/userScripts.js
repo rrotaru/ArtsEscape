@@ -76,4 +76,33 @@ $(document).ready(function(){
         });
 
 
+        $("#userUpdate").click(function() {
+            var data = { id : sessionStorage.getItem("userid"),
+             title : $('#prefix').val(),
+             first_name : $('#firstName').val(),
+             last_name : $('#lastName').val(),
+             street_address : $('#address').val(),
+             city : $('#city').val(),
+             state : $('#state').val(),
+             zip : $('#zip').val(),
+             email : $('#email').val(),
+             phone : $('#phone').val(),
+             age : $('#age').val(),
+             gender : $('#gender').val()
+            }
+
+            $.ajax({
+                url: host+"/api/update",
+                data: data,
+                contentType: "application/x-www-form-urlencoded",
+                type: "POST",
+                dataType: "text",
+                success: function(response) {
+                    console.log(response);
+                },
+                error: function(error){
+                    console.log(error);
+                }
+        });
+
 });
