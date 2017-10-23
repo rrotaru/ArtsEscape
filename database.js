@@ -10,16 +10,16 @@ if(!err) {
 });
 
 exports.search = function(req, res) {
-    var lastname = req.body.last_name;
+    var last_name = req.body.last_name;
     connection.query('SELECT id, first_name, last_name, email from Users where ? = last_name',last_name, function (error, results, fields) {
         if (error) {
-          console.log("error ocurred",error);
+          console.log("error",error);
           res.send({
             "status":400,
             "error": error
           })
         } else {
-          console.log('The solution is: ', results, fields);
+          console.log('Results', results, fields);
           res.send({
             "status":200,
             "data" : results
