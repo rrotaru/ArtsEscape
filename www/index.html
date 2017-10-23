@@ -1,0 +1,231 @@
+<!--  ######### Site page made for The Hartford Career Fairs #############
+      ######### Created October 2016 by Matthew Musich       #############
+      ######### For any tool information please contact Matt ############# -->
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Arts Escape</title>
+	<link href="css/bootstrap.min.css" rel="stylesheet">
+	<link href="css/override.css" rel="stylesheet">
+	<!-- Insert this line above script imports  -->
+
+	<!-- normal script imports etc  -->
+	<script src="js/jquery.min.js"></script>       
+
+	<!-- Insert this line after script imports -->
+</head>
+<body>
+
+<div class="container">	
+	<h4>User</h4>
+	<div class="row">
+		<div class="col-12">
+			<form class="form-inline" id="StudentAdd" onsubmit="return submitForm()" autocomplete="off">
+				<div class="form-group">
+				<label class="control-label" for="prefix">Prefix:</label>
+				<input class="form-control" type="text" name="prefix" id="prefix" autocomplete="off">
+				</div>
+				<div class="form-group">
+				<label class="control-label" for="firstName">First Name:</label>
+				<input class="form-control" type="text" name="FirstName" id="firstName" autocomplete="off">
+				</div>
+				<div class="form-group">
+				<label class="control-label" for="lastName">Last Name:</label>
+				<input class="form-control" type="text" name="LastName" id="lastName" autocomplete="off">
+				</div>
+				<div class="form-group">
+				<label class="control-label" for="address">Address:</label>
+				<input class="form-control" type="text" name="address" id="address" autocomplete="off">
+				</div>
+				<div class="form-group">
+				<label class="control-label" for="city">City:</label>
+				<input class="form-control" type="text" name="city" id="city" autocomplete="off">
+				</div>
+				<div class="form-group">
+				<label class="control-label" for="state">State:</label>
+				<input class="form-control" type="text" name="state" id="state" autocomplete="off">
+				</div>
+				<div class="form-group">
+				<label class="control-label" for="zip">Zip:</label>
+				<input class="form-control" type="text" name="zip" id="zip" autocomplete="off">
+				</div>
+				<div class="form-group">
+				<label class="control-label" for="email">Email:</label>
+				<input class="form-control" type="email" name="email" id="email" autocomplete="off">
+				</div>
+				<div class="form-group">
+				<label class="control-label" for="phone">Phone:</label>
+				<input class="form-control" type="text" name="phone" id="phone" autocomplete="off">
+				</div>
+				<div class="form-group">
+				<label class="control-label" for="age">Age:</label>
+				<input class="form-control" type="text" name="age" id="age" autocomplete="off">
+				</div>
+				<div class="form-group">
+				<label class="control-label" for="gender">Gender:</label>
+				<input class="form-control" type="text" name="gender" id="gender" autocomplete="off">
+				</div>
+				<input id="formSubmit" class="form-control btn-primary" type="submit" value="Update User">
+				
+			</form>
+			<div class="alert alert-success" role="alert" id="success-alert">
+				  <button type="button" class="close" data-dismiss="alert"></button>
+				  <strong>Success!</strong> Thank you, your information was submitted!
+				</div>
+		</div>
+	</div>
+
+	<br>
+
+	<h4>Donations:</h4>
+	<div class="row">
+		<div class="col-12">
+		<form class="form-inline" id="DonationAdd" onsubmit="return submitForm()" autocomplete="off">
+		<div class="form-group">
+		<label class="control-label" for="donationDate">Date:</label>
+		<input class="form-control" type="text" name="donationDate" id="donationDate" autocomplete="off">
+		</div>
+		<div class="form-group">
+		<label class="control-label" for="donationTypeEvent">Type/Event:</label>
+		<input class="form-control" type="text" name="donationTypeEvent" id="donationTypeEvent" autocomplete="off">
+		</div>
+		<div class="form-group">
+		<label class="control-label" for="donationAmount">Amount $:</label>
+		<input class="form-control" type="text" name="donationAmount" id="donationAmount" autocomplete="off">
+		</div>
+		<input id="formSubmit" class="form-control btn-primary" type="submit" value="Add">
+		</form>
+	</div>
+	<div class="col-12">
+			<table class="table" id="donationTable">
+					<thead>
+						<tr>
+							<th>Date</th>
+							<th>Type/Event</th>
+							<th>Amount $</th>
+						</tr>
+					</thead>
+					<tbody id="donationTableRows">
+						
+					</tbody>
+				</table>
+		</div>
+	</div>
+
+	<br>
+
+	<h4>Sponsorship:</h4>	
+	<div class="row">
+			<div class="col-12">
+		<form class="form-inline" id="SponsorshipAdd" onsubmit="return submitForm()" autocomplete="off">
+			<div class="form-group">
+			<label class="control-label" for="sponsorhipDate">Date:</label>
+			<input class="form-control" type="text" name="sponsorhipDate" id="sponsorhipDate" autocomplete="off">
+			</div>
+			<div class="form-group">
+			<label class="control-label" for="sponsorhipTypeEvent">Type/Event:</label>
+			<input class="form-control" type="text" name="sponsorhipTypeEvent" id="sponsorhipTypeEvent" autocomplete="off">
+			</div>
+			<div class="form-group">
+			<label class="control-label" for="sponsorhipAmount">Amount $:</label>
+			<input class="form-control" type="text" name="sponsorhipAmount" id="sponsorhipAmount" autocomplete="off">
+			</div>
+			<input id="formSubmit" class="form-control btn-primary" type="submit" value="Add">
+			</form>
+			</div>
+			<div class="col-12">
+					<table class="table" id="sponsorshipTable">
+							<thead>
+								<tr>
+									<th>Date</th>
+									<th>Type/Event</th>
+									<th>Amount $</th>
+								</tr>
+							</thead>
+							<tbody id="sponsorshipTableRows">
+								
+							</tbody>
+						</table>
+				</div>
+		</div>
+	
+		<br>
+
+	<h4>Program Attended:</h4>
+	<div class="row">
+			<div class="col-12">
+		<form class="form-inline" id="ProgramAdd" onsubmit="return submitForm()" autocomplete="off">	
+			<div class="form-group">
+			<label class="control-label" for="programName">Name:</label>
+			<input class="form-control" type="text" name="programName" id="programName" autocomplete="off">
+			</div>
+			<div class="form-group">
+			<label class="control-label" for="programType">Type:</label>
+			<input class="form-control" type="text" name="programType" id="programType" autocomplete="off">
+			</div>
+			<div class="form-group">
+			<label class="control-label" for="programDate">Date:</label>
+			<input class="form-control" type="text" name="programDate" id="programDate" autocomplete="off">
+			</div>
+			<input id="formSubmit" class="form-control btn-primary" type="submit" value="Add">
+			</form>
+			</div>
+			<div class="col-12">
+					<table class="table" id="programTable">
+							<thead>
+								<tr>
+									<th>Name</th>
+									<th>Type</th>
+									<th>Date</th>
+								</tr>
+							</thead>
+							<tbody id="programTableRows">
+								
+							</tbody>
+						</table>
+			</div>
+	</div>
+
+	<br>
+
+	<h4>Volunteering:</h4>	
+	<div class="row">
+			<div class="col-12">
+		<form class="form-inline" id="VolunteeringAdd" onsubmit="return submitForm()" autocomplete="off">
+			<div class="form-group">
+			<label class="control-label" for="volunteeringDate">Date:</label>
+			<input class="form-control" type="text" name="volunteeringDate" id="volunteeringDate" autocomplete="off">
+			</div>
+			<div class="form-group">
+			<label class="control-label" for="volunteeringHours">Hours:</label>
+			<input class="form-control" type="text" name="volunteeringHours" id="volunteeringHours" autocomplete="off">
+			</div>
+			<input id="formSubmit" class="form-control btn-primary" type="submit" value="Add">
+			</form>
+			</div>
+			<div class="col-12">
+					<table class="table" id="volunteeringTable">
+							<thead>
+								<tr>
+									<th>Date</th>
+									<th>Hours</th>
+								</tr>
+							</thead>
+							<tbody id="volunteeringTableRows">
+								
+							</tbody>
+						</table>
+			</div>
+	</div>
+
+
+</div>
+
+
+<!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+<!-- Include all compiled plugins (below), or include individual files as needed -->
+<script src="js/bootstrap.min.js"></script>
+<script src="js/scripts.js"></script>
+</body>
+</html>
