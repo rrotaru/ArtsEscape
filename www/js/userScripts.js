@@ -10,18 +10,19 @@ $(document).ready(function(){
     
         $.ajax({
             url: host+"/api/getall",
-            data: {"userid":userid},
+            data: {"user_id":userid},
             contentType: "application/x-www-form-urlencoded",
             type: "POST",
             dataType: "text",
             success: function(response) {
-                var json = JSON.parse(response);
+                var parsed = JSON.parse(response);
+                var json = parsed.data;
                 console.log(json);
                
-                $('#prefix').value(json.user.prefix);
+                $('#prefix').value(json.user.title);
                 $('#firstname').value(json.user.first_name);
                 $('#lastname').value(json.user.last_name);
-                $('#address').value(json.user.address);
+                $('#address').value(json.user.street_address);
                 $('#city').value(json.user.city);
                 $('#state').value(json.user.state);
                 $('#zip').value(json.user.zip);
@@ -30,24 +31,24 @@ $(document).ready(function(){
                 $('#age').value(json.user.age);
                 $('#gender').value(json.user.gender);
 
-                for (var key in json.donation) {
-                    console.log("a donation-->",json.donation[key])
-                    donationResults.push(json.donation[key]);
+                for (var key in json.donations) {
+                    console.log("a donation-->",json.donations[key])
+                    donationResults.push(json.donations[key]);
                 }
 
-                for (var key in json.sponsorship) {
-                    console.log("a sponsorship-->",json.sponsorship[key])
-                    sponsorshipResults.push(json.sponsorship[key]);
+                for (var key in json.sponsorships) {
+                    console.log("a sponsorship-->",json.sponsorships[key])
+                    sponsorshipResults.push(json.sponsorships[key]);
                 }
 
-                for (var key in json.program) {
-                    console.log("a program-->",json.program[key])
-                    programResults.push(json.program[key]);
+                for (var key in json.programs) {
+                    console.log("a program-->",json.programs[key])
+                    programResults.push(json.programs[key]);
                 }
 
-                for (var key in json.volunteering) {
-                    console.log("a volunteering-->",json.volunteering[key])
-                    volunteeringResults.push(json.volunteering[key]);
+                for (var key in json.volunteerings) {
+                    console.log("a volunteering-->",json.volunteerings[key])
+                    volunteeringResults.push(json.volunteerings[key]);
                 }
 
                 for (var i = 0; i < donationResults.length; i++){

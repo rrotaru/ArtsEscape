@@ -144,16 +144,17 @@ exports.add = function(req, res) {
 
 exports.getAll = function(req, res) {
     var userId = req.body.user_id;
-    connection.query("SELECT date, type, amount FROM Donations WHERE user_id = ?; SELECT date, type, amount FROM Sponsorships WHERE user_id = ?; SELECT name, type, date FROM Programs WHERE user_id = ?; SELECT date, hours FROM Volunteerings WHERE user_id = ?", [userId, userId, userId, userId] ,function(error, results, fields) {
+    connection.query("SELECT first_name, last_name, title, street_address, city, state, zip, email, phone, age, gender FROM Users WHERE user_id = ?; SELECT date, type, amount FROM Donations WHERE user_id = ?; SELECT date, type, amount FROM Sponsorships WHERE user_id = ?; SELECT name, type, date FROM Programs WHERE user_id = ?; SELECT date, hours FROM Volunteerings WHERE user_id = ?", [userId, userId, userId, userId, userId] ,function(error, results, fields) {
         if (error) {
             console.log(error);
         } else {
             console.log(results, fields);
             var response = {donations: [], sponsorships: [], programs: [], volunteering: []};
-            response.donations = results[0];
-            response.sponsorships = results[1];
-            response.programs = results[2];
-            response.volunteering = results[3];
+            response.user = results[0][0];
+            response.donations = results[1];
+            response.sponsorships = results[2];
+            response.programs = results[3];
+            response.volunteering = results[4];
             res.send({
                 "status": 200,
                 "data": response
