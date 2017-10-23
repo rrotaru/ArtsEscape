@@ -79,18 +79,87 @@ exports.add = function(req, res) {
                 }
             })
             break;
-        case "sponsor":
+        case "sponsorship":
+            var sponsorData = {
+                "date" : req.body.date,
+                "type" : req.body.type,
+                "amount" : req.body.amount,
+                "user_id" : req.body.user_id,
+            }
+
+            connection.query("INSERT into Sponsorships SET ?", sponsorData ,function(error, results, fields) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log(results, fields);
+                    res.send({
+                        "status": 200,
+                        "data": results
+                    })
+                }
+            })
             break;
         case "program":
+            var donationData = {
+                "name" : req.body.name,
+                "type" : req.body.type,
+                "date" : req.body.date,
+                "user_id" : req.body.user_id,
+            }
+
+            connection.query("INSERT into Programs SET ?", donationData ,function(error, results, fields) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log(results, fields);
+                    res.send({
+                        "status": 200,
+                        "data": results
+                    })
+                }
+            })
             break;
         case "volunteering":
+            var donationData = {
+                "date" : req.body.date,
+                "hours" : req.body.type,
+                "user_id" : req.body.user_id,
+            }
+
+            connection.query("INSERT into Volunteerings SET ?", donationData ,function(error, results, fields) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log(results, fields);
+                    res.send({
+                        "status": 200,
+                        "data": results
+                    })
+                }
+            })
             break;
         default:
     }
 }
 
 exports.getAll = function(req, res) {
-    res.send({ "status": 200, "data": "Not there yet."})
+    var userId = req.body.user_id;
+    connection.query("SELECT date, type, amount FROM Donations WHERE user_id = ?; SELECT date, type, amount FROM Sponsorships WHERE user_id = ?; SELECT name, type, date FROM Programs WHERE user_id = ?; SELECT date, hours FROM Volunteerings WHERE user_id = ?", [userId, userId, userId, userId] ,function(error, results, fields) {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log(results, fields);
+            var response = {donations: [], sponsorships: [], programs: [], volunteering: []};
+            response.donations = results[0];
+            response.sponsorships = results[1];
+            response.programs = results[2];
+            response.volunteering = results[3];
+            res.send({
+                "status": 200,
+                "data": response
+            })
+        }
+    })
 }
 
 exports.update = function(req, res) {
