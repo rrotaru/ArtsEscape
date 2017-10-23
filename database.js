@@ -164,5 +164,29 @@ exports.getAll = function(req, res) {
 }
 
 exports.update = function(req, res) {
-    res.send({ "status": 200, "data": "Not there yet."})    
-}
+    var userData = {
+        "id" : req.body.id,
+        "first_name" : req.body.first_name,
+        "last_name" : req.body.last_name,
+        "title" : req.body.title,
+        "street_address" : req.body.street_address,
+        "city" : req.body.city,
+        "state" : req.body.state,
+        "zip" : req.body.zip,
+        "email" : req.body.email,
+        "phone" : req.body.phone,
+        "age" : req.body.age,
+        "gender" : req.body.gender
+    }
+
+    connection.query("UPDATE Users SET ? WHERE id = ?", [userData, id],function(error, results, fields) {
+        if (error) {
+            console.log(error);
+        } else {
+            console.log(results, fields);
+            res.send({
+                "status": 200,
+                "data": results
+            })
+        }
+    })}
