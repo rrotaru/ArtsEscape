@@ -1,5 +1,5 @@
 var searchResults = [];
-
+var host = "http://104.236.36.134:5000"
 $(document).ready(function(){
     
     $("#searchSubmit").click(function() {
@@ -9,17 +9,23 @@ $(document).ready(function(){
         var searchTerm = $('#searchLastName').text();
 
         $.ajax({
-            url: "/api/search/"+searchTerm,
-            type: "GET",
-            dataType: "json",
-            success: function(data) {
-                for (var datam in data) {
+            url: host+"/api/search",
+            data: '{"last_name": "'+searchTerm+'"}',
+            contentType: "application/x-www-form-urlencoded",
+            type: "POST",
+            dataType: "text",
+            success: function(repsonse) {
+                console.log(repsonse);
+                for (var data in repsonse) {
                     searchResults.push(JSON.parse(datam));
                 }
+            },
+            error: function(error){
+                console.log(error);
             }
         });
 
-        console.log(searchResults);
+        
 
         for (var i = 0; i < searchResults.length; i++){
             var d = searchResults[i];
