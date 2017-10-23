@@ -52,19 +52,19 @@ $(document).ready(function(){
 
                 for (var i = 0; i < donationResults.length; i++){
                     var d = donationResults[i];
-                    $("#searchTableRows").append("<tr><td>"+d.date+"</td><td>"+d.typeEvent+"</td><td>"+d.amount+"</td></tr>");
+                    $("#donationTableRows").append("<tr><td>"+d.date+"</td><td>"+d.typeEvent+"</td><td>"+d.amount+"</td></tr>");
                 }
                 for (var i = 0; i < sponsorshipResults.length; i++){
                     var s = sponsorshipResults[i];
-                    $("#searchTableRows").append("<tr><td>"+s.date+"</td><td>"+s.typeEvent+"</td><td>"+s.amount+"</td></tr>");
+                    $("#sponsorshipTableRows").append("<tr><td>"+s.date+"</td><td>"+s.typeEvent+"</td><td>"+s.amount+"</td></tr>");
                 }
                 for (var i = 0; i < programResults.length; i++){
                     var p = programResults[i];
-                    $("#searchTableRows").append("<tr><td>"+p.name+"</td><td>"+p.type+"</td><td>"+p.date+"</td></tr>");
+                    $("#programTableRows").append("<tr><td>"+p.name+"</td><td>"+p.type+"</td><td>"+p.date+"</td></tr>");
                 }
                 for (var i = 0; i < volunteeringResults.length; i++){
                     var v = volunteeringResults[i];
-                    $("#searchTableRows").append("<tr><td>"+v.date+"</td><td>"+v.hours+"</td></tr>");
+                    $("#volunteeringTableRows").append("<tr><td>"+v.date+"</td><td>"+v.hours+"</td></tr>");
                 }
 
 
