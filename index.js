@@ -1,3 +1,4 @@
+#!/usr/bin/env nodejs
 var express    = require("express");
 //var login = require('./login');
 var database = require('./database');
@@ -25,4 +26,4 @@ router.post('/getall',database.getAll);
 router.post('/update',database.update);
 
 app.use('/api', router);
-app.listen(5000);
+app.listen(5000, '0.0.0.0');
