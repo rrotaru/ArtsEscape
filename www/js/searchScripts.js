@@ -15,9 +15,16 @@ $(document).ready(function(){
             type: "POST",
             dataType: "text",
             success: function(response) {
+                var json = JSON.parse(response);
                 console.log(response);
-                for (var data in response) {
-                    searchResults.push(JSON.parse(data));
+                for (var key in json.data) {
+                    console.log("a person-->",json.data[key])
+                    searchResults.push(json.data[key]);
+                }
+
+                for (var i = 0; i < searchResults.length; i++){
+                    var d = searchResults[i];
+                    $("#searchTableRows").append("<tr><td>"+d.first_name+"</td><td>"+d.last_name+"</td><td>"+d.email+"</td><td>"+d.phone+"</td><td>"+d.id+"</td></tr>");
                 }
             },
             error: function(error){
@@ -27,10 +34,7 @@ $(document).ready(function(){
 
         
 
-        for (var i = 0; i < searchResults.length; i++){
-            var d = searchResults[i];
-            $("#searchTableRows").append("<tr><td>"+d.first_name+"</td><td>"+d.last_name+"</td><td>"+d.email+"</td><td>"+d.phone+"</td><td>"+d.id+"</td></tr>");
-        }
+
         //sessionStorage.setItem('label', 'value')
 
       });
