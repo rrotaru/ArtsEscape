@@ -24,7 +24,7 @@ $(document).ready(function(){
 
                 for (var i = 0; i < searchResults.length; i++){
                     var d = searchResults[i];
-                    $("#searchTableRows").append("<tr><td>"+d.first_name+"</td><td>"+d.last_name+"</td><td>"+d.email+"</td><td>"+d.phone+"</td><td>"+d.id+"</td></tr>");
+                    $("#searchTableRows").append("<tr><td>"+d.first_name+"</td><td>"+d.last_name+"</td><td>"+d.email+"</td><td>"+d.phone+"</td><td><input type=\"button\" class=\"btn btn-primary\" value=\""+d.id+"\" ></td></tr>");
                 }
             },
             error: function(error){
