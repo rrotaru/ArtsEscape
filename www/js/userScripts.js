@@ -19,17 +19,17 @@ $(document).ready(function(){
                 var json = parsed.data;
                 console.log(json);
                
-                $('#prefix').value(json.user.title);
-                $('#firstname').value(json.user.first_name);
-                $('#lastname').value(json.user.last_name);
-                $('#address').value(json.user.street_address);
-                $('#city').value(json.user.city);
-                $('#state').value(json.user.state);
-                $('#zip').value(json.user.zip);
-                $('#email').value(json.user.email);
-                $('#phone').value(json.user.phone);
-                $('#age').value(json.user.age);
-                $('#gender').value(json.user.gender);
+                $('#prefix').val(json.user.title);
+                $('#firstName').val(json.user.first_name);
+                $('#lastName').val(json.user.last_name);
+                $('#address').val(json.user.street_address);
+                $('#city').val(json.user.city);
+                $('#state').val(json.user.state);
+                $('#zip').val(json.user.zip);
+                $('#email').val(json.user.email);
+                $('#phone').val(json.user.phone);
+                $('#age').val(json.user.age);
+                $('#gender').val(json.user.gender);
 
                 for (var key in json.donations) {
                     console.log("a donation-->",json.donations[key])
