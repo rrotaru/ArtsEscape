@@ -35,8 +35,14 @@ $(document).ready(function(){
         
 
 
-        //sessionStorage.setItem('label', 'value')
+        
 
+      });
+
+
+      $('.btn-primary').click(function(){
+        sessionStorage.setItem('label', this.value);
+        window.location.href = "user.html";
       });
 
 });
