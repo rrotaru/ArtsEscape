@@ -60,6 +60,24 @@ exports.add = function(req, res) {
             })
             break;
         case "donation":
+            var donationData = {
+                "date" : req.body.date,
+                "type" : req.body.type,
+                "amount" : req.body.amount,
+                "user_id" : req.body.user_id,
+            }
+
+            connection.query("INSERT into Donations SET ?", donationData ,function(error, results, fields) {
+                if (error) {
+                    console.log(error);
+                } else {
+                    console.log(results, fields);
+                    res.send({
+                        "status": 200,
+                        "data": results
+                    })
+                }
+            })
             break;
         case "sponsor":
             break;
