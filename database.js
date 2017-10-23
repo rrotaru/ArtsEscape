@@ -179,7 +179,7 @@ exports.update = function(req, res) {
         "gender" : req.body.gender
     }
 
-    connection.query("UPDATE Users SET ? WHERE id = ?", [userData, id],function(error, results, fields) {
+    connection.query("UPDATE Users SET ? WHERE id = ?", [userData, userData.id],function(error, results, fields) {
         if (error) {
             console.log(error);
         } else {
