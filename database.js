@@ -10,22 +10,25 @@ if(!err) {
 });
 
 exports.search = function(req, res) {
-    var last_name = req.body.last_name.toUpperCase();
-    connection.query('SELECT id, first_name, last_name, email, phone from Users where ? = UPPER(last_name)',last_name, function (error, results, fields) {
-        if (error) {
-          console.log("error",error);
-          res.send({
-            "status":400,
-            "error": error
-          })
-        } else {
-          console.log('Results', results, fields);
-          res.send({
-            "status":200,
-            "data" : results
-              });
-        }
-    });
+    var last_name = req.body.last_name;
+    if (last_name.length > 0) {
+        last_name = lastName.toUpperCase();
+        connection.query('SELECT id, first_name, last_name, email, phone from Users where ? = UPPER(last_name)',last_name, function (error, results, fields) {
+            if (error) {
+                console.log("error",error);
+                res.send({
+                "status":400,
+                "error": error
+                })
+            } else {
+                console.log('Results', results, fields);
+                res.send({
+                "status":200,
+                "data" : results
+                    });
+            }
+        });
+    }
 };
 
 exports.add = function(req, res) {
