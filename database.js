@@ -10,8 +10,8 @@ if(!err) {
 });
 
 exports.search = function(req, res) {
-    var last_name = req.body.last_name;
-    connection.query('SELECT id, first_name, last_name, email from Users where ? = last_name',last_name, function (error, results, fields) {
+    var last_name = req.body.last_name.toUpperCase();
+    connection.query('SELECT id, first_name, last_name, email, phone from Users where ? = UPPER(last_name)',last_name, function (error, results, fields) {
         if (error) {
           console.log("error",error);
           res.send({
